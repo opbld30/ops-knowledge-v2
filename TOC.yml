@@ -1,2 +1,6 @@
-- name: Index
+- name: index
   href: index.md
+- name: docs
+  items:
+  - name: local debug docfx
+    href: docs/local-debug-docfx.md
