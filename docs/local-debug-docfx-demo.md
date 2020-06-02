@@ -7,76 +7,76 @@ author: v-caxian
 
 ## Preparation
 
-Clone docfx repo and test repo
+- Clone [dotnet.docfx](https://github.com/dotnet/docfx.git) and checkout `dev` branch.
+- Clone [OpenPublishing.Build](https://ceapex.visualstudio.com/Engineering/_git/OpenPublishing.Build) and checkout `develop` branch.
+- Clone a test repo that provisioned on v2.
+- [Download Build Config](https://dev.azure.com/ceapex/Engineering/_git/OpenPublishing.Build?path=%2FDocs%2FLocal-Build.md&_a=preview)
 
 ```bash
 git clone https://github.com/dotnet/docfx.git
-
+git clone https://ceapex.visualstudio.com/Engineering/_git/OpenPublishing.Build
 git clone https://github.com/v-caxian/ops-knowledge-v2.git
 
 cd docfx
 git checkout dev
 
 cd ..
+cd OpenPublishing.Build
+git checkout develop
+
+cd ..
 cd ops-knowledge-v2
 git checkout dev
 ```
 
-![Alt Text](./images/local-debug-docfx-demo/0.png)
 ![Alt Text](./images/local-debug-docfx-demo/0.1.png)
+![Alt Text](./images/local-debug-docfx-demo/0.2.png)
 
-## Step 1
+## Steps
 
-Enable a break point at `& "$buildCorePowershellDestination" "$parameters"` in [~/.openpublishing.build.ps1#L18](https://dev.azure.com/ceapex/Engineering/_git/OpenPublishing.Build?path=%2FLibraries%2FMsBuildDebuggerProject%2F.openpublishing.build.ps1&version=GBdevelop&line=18&lineEnd=18&lineStartColumn=1&lineEndColumn=58&lineStyle=plain)
+1. Run powershell script, set breakpoint before run docfx.exe
 
-![Alt Text](./images/local-debug-docfx-demo/1.png)
+Enable a break point at `& "$buildCorePowershellDestination" "$parameters"` in [~/.openpublishing.build.ps1#L18](https://dev.azure.com/ceapex/Engineering/_git/OpenPublishing.Build?path=%2FLibraries%2FMsBuildDebuggerProject%2F.openpublishing.build.ps1&version=GBdevelop&line=18&lineEnd=18&lineStartColumn=1&lineEndColumn=58&lineStyle=plain)  
+![Alt Text](./images/local-debug-docfx-demo/1.1.png)
 
-## Step 2
+Run the powershell command `~/.openpublishing.build.ps1 -parameters:'buildConfigFile={download_config_file_path}'` to hit the breakpoint
+![Alt Text](./images/local-debug-docfx-demo/1.2.png)
 
-Run powershell PowerShell: `.\.openpublishing.build.ps1 -parameters:'buildConfigFile={download_config_file_path}'`
+Enable line breakpoint at `if (!$restoreSucceeded)` in [~/.openpublishing.buildcore.ps1#L1341](https://dev.azure.com/ceapex/Engineering/_git/OpenPublishing.Build?path=%2FLibraries%2FMsBuildDebuggerProject%2F.openpublishing.buildcore.ps1&version=GBdevelop&line=1341&lineEnd=1341&lineStartColumn=1&lineEndColumn=28&lineStyle=plain), then continue running the script to hit it.
+![Alt Text](./images/local-debug-docfx-demo/1.3.png)
 
-[Download Build Config](https://dev.azure.com/ceapex/Engineering/_git/OpenPublishing.Build?path=%2FDocs%2FLocal-Build.md&_a=preview)
+Enable line breakpoint at `& "$docfxExe" $allArgs` in [~/.optemp/packages/opbuild.scripts.{version}/tools/opbuild/docs.ps1#L502](https://dev.azure.com/ceapex/Engineering/_git/OpenPublishing.Build?path=%2FLibraries%2FMsBuildDebuggerProject%2Fopbuild%2Fdocs.ps1&version=GBdevelop&line=502&lineEnd=502&lineStartColumn=1&lineEndColumn=27&lineStyle=plain), then continue running the script to hit it.
+![Alt Text](./images/local-debug-docfx-demo/1.4.png)
+
+2. To debug docfx, add `System.Diagnostics.Debugger.Launch();` at the top of `Main()` method in the file [docfx/src/docfx/Program.cs](https://github.com/dotnet/docfx/blob/dev/src/docfx/Program.cs).
 
 ![Alt Text](./images/local-debug-docfx-demo/2.png)
 
-## Step 3
+3. Build the docfx project and replace all published files into the folder `~/.optemp/packages/docfx.console.{version}/tools`.
 
-Enable line breakpoint at `if (!$restoreSucceeded)` in [~/.openpublishing.buildcore.ps1#L1341](https://dev.azure.com/ceapex/Engineering/_git/OpenPublishing.Build?path=%2FLibraries%2FMsBuildDebuggerProject%2F.openpublishing.buildcore.ps1&version=GBdevelop&line=1341&lineEnd=1341&lineStartColumn=1&lineEndColumn=28&lineStyle=plain)
+![Alt Text](./images/local-debug-docfx-demo/3.1.png)
+![Alt Text](./images/local-debug-docfx-demo/3.2.png)
+![Alt Text](./images/local-debug-docfx-demo/3.3.png)
 
-![Alt Text](./images/local-debug-docfx-demo/3.png)
+4. To debug docfx plugins, like OPS Build project.
 
-## Step 4
+Make sure disable [Just My Code](https://docs.microsoft.com/visualstudio/debugger/just-my-code?view=vs-2019#BKMK_Enable_or_disable_Just_My_Code) 
+![Alt Text](./images/local-debug-docfx-demo/4.1.png)
 
-Enable line breakpoint at `& "$docfxExe" $allArgs` in [~/.optemp/packages/opbuild.scripts.{version}/tools/opbuild/docs.ps1#L502](https://dev.azure.com/ceapex/Engineering/_git/OpenPublishing.Build?path=%2FLibraries%2FMsBuildDebuggerProject%2Fopbuild%2Fdocs.ps1&version=GBdevelop&line=502&lineEnd=502&lineStartColumn=1&lineEndColumn=27&lineStyle=plain)
+If you took the #2, then just add `System.Diagnostics.Debugger.Break();` where you want.   
+![Alt Text](./images/local-debug-docfx-demo/4.2.png)
 
-![Alt Text](./images/local-debug-docfx-demo/4.png)
+If you didn't take the #2, then add `System.Diagnostics.Debugger.Launch();` at the program entrance or the first place you want to pause.
 
-## Step 5
+5.  Build the ops project and replace published files into the folder `~/_themes/ContentTemplate/plugins`.
 
-Add below code at the top of `Main()` method in [docfx/src/docfx/Program.cs](https://github.com/dotnet/docfx/blob/dev/src/docfx/Program.cs) and build the docfx project.
+![Alt Text](./images/local-debug-docfx-demo/5.1.png)
+![Alt Text](./images/local-debug-docfx-demo/5.2.png)
+![Alt Text](./images/local-debug-docfx-demo/5.3.png)
 
-```cs
-Console.WriteLine("Waiting for attach docfx process...");
-while (!System.Diagnostics.Debugger.IsAttached)
-{
-    System.Threading.Thread.Sleep(1000);
-}
-System.Diagnostics.Debugger.Break();
-```
-
-![Alt Text](./images/local-debug-docfx-demo/5.png)
-
-## Step 6
-
-Replace all docfx files in the folder `~/.optemp/packages/docfx.console.{version}/tools`.
+6. Continue running the script to launch and attach a debugger to the process.
 
 ![Alt Text](./images/local-debug-docfx-demo/6.1.png)
 ![Alt Text](./images/local-debug-docfx-demo/6.2.png)
-
-## Step 7
-
-[Attach](https://docs.microsoft.com/visualstudio/debugger/attach-to-running-processes-with-the-visual-studio-debugger?view=vs-2019) docfx.exe to running processes.
-
-![Alt Text](./images/local-debug-docfx-demo/7.1.png)
-![Alt Text](./images/local-debug-docfx-demo/7.2.png)
-![Alt Text](./images/local-debug-docfx-demo/7.3.png)
+![Alt Text](./images/local-debug-docfx-demo/6.3.png)
+![Alt Text](./images/local-debug-docfx-demo/6.4.png)
