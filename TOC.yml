@@ -4,3 +4,7 @@
   items:
   - name: local debug docfx
     href: docs/local-debug-docfx.md
+- name: tasks
+  items:
+  - name: bug-203706
+    href: tasks/203706/index.md
