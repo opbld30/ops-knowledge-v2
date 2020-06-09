@@ -4,7 +4,7 @@
 
 ## Step-1: Connect to k8s
 
-Follow this [document] (https://ceapex.visualstudio.com/Engineering/_git/Docs.Build.Infrastructure?path=%2Fdocs%2Fprepare.md&version=GBdevelop&_a=preview) connect to k8s
+Follow this [document](https://ceapex.visualstudio.com/Engineering/_git/Docs.Build.Infrastructure?path=%2Fdocs%2Fprepare.md&version=GBdevelop&_a=preview) to connect to k8s
 
 ## Step-2: Connect to a a pod
 
