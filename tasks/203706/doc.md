@@ -12,7 +12,7 @@ Need to connect to a **v3** pod.
 
 ![Alt Text](./images/2.png)
 
-```sh
+```powershell
 kubectl get pods
 kubectl exec -it <pod_name> 
 ```
@@ -21,7 +21,7 @@ kubectl exec -it <pod_name>
 
 1. Install [git](https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-PowerShell) with [git-install.ps1](https://github.com/v-caxian/ops-knowledge-v2/blob/dev/tasks/203706/git-install.ps1). If it is already installed, skip this step.
 
-```sh
+```powershell
 Set-ExecutionPolicy -Scope LocalMachine -ExecutionPolicy RemoteSigned -Force
 Invoke-WebRequest -Uri "https://api.github.com/repos/v-caxian/ops-knowledge-v2/contents/tasks/203706/git-install.ps1?ref=dev" -OutFile "git-install.ps1"
 Set-Content -Path "git-install.ps1" -Value ([System.Text.Encoding]::ASCII.GetString([Convert]::FromBase64String((Get-Content "git-install.ps1" | ConvertFrom-Json).content)))
@@ -30,7 +30,7 @@ Set-Content -Path "git-install.ps1" -Value ([System.Text.Encoding]::ASCII.GetStr
 
 2. Execute [git-clone.ps1](https://github.com/v-caxian/ops-knowledge-v2/blob/dev/tasks/203706/git-clone.ps1) to clone [OPS-E2E-PPE/azure-docs-pr] repo and check the free space in loop 
 
-```sh
+```powershell
 Invoke-WebRequest -Uri "https://api.github.com/repos/v-caxian/ops-knowledge-v2/contents/tasks/203706/git-clone.ps1?ref=dev" -OutFile "git-clone.ps1"
 Set-Content -Path "git-clone.ps1" -Value ([System.Text.Encoding]::ASCII.GetString([Convert]::FromBase64String((Get-Content "git-clone.ps1" | ConvertFrom-Json).content)))
 .\git-clone.ps1 -p <Your GitHub Personal Access Token>
