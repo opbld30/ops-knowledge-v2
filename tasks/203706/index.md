@@ -20,7 +20,7 @@ Need to connect to a **v3** pod.
 
 ```powershell
 kubectl get pods
-kubectl exec -it <pod_name> 
+kubectl exec -it <pod_name> -- powershell
 ```
 
 ### Step-3: Execute powershell to check the pod status
