@@ -1,12 +1,18 @@
-# [Bug 233392: Azure Log Alert : ops-build-service-k8s-prod - [ops-build-service-k8s-prod] [1916k8s00] LogicalDiskFreeSpace on Drive C threshold has been exceeded](https://dev.azure.com/ceapex/Engineering/_workitems/edit/233392)
+# Bug 233392
 
-## Enviroment : Internal
+[Azure Log Alert : ops-build-service-k8s-prod - [ops-build-service-k8s-prod] [1916k8s00] LogicalDiskFreeSpace on Drive C threshold has been exceeded](https://dev.azure.com/ceapex/Engineering/_workitems/edit/233392)
 
-## Step-1: Connect to k8s
+## Processing steps
+
+### Processing Enviroment
+
+**Internal**
+
+### Step-1: Connect to k8s
 
 Follow this [document](https://ceapex.visualstudio.com/Engineering/_git/Docs.Build.Infrastructure?path=%2Fdocs%2Fprepare.md&version=GBdevelop&_a=preview) to connect to k8s
 
-## Step-2: Connect to a a pod
+### Step-2: Connect to a a pod
 
 Need to connect to a **v3** pod.
 
@@ -17,7 +23,7 @@ kubectl get pods
 kubectl exec -it <pod_name> 
 ```
 
-## Step-3: Execute powershell to check the pod status
+### Step-3: Execute powershell to check the pod status
 
 1. Install [git](https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-PowerShell) with [git-install.ps1](https://github.com/v-caxian/ops-knowledge-v2/blob/dev/tasks/203706/git-install.ps1). If it is already installed, skip this step.
 
