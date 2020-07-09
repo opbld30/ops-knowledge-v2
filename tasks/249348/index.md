@@ -1,7 +1,7 @@
 # DEV TASK 249348
 
 | # | PR | Build Status | Build Report |
-|---|---|---|---|
+|:---:|:---|:---:|:---:|
 | 1 | https://github.com/MicrosoftDocs/rd-pr/pull/387 | Warnings | [report](https://opbuildstorageprod.blob.core.windows.net/report/2020%5C7%5C9%5C749ee673-7e40-a548-bc50-f5dbe8faa085%5CPullRequest%5C202007090331387140-387%5Cworkflow_report.html?sv=2016-05-31&sr=b&sig=yiL3ND0S4FlsZun6WsseeTV%2BnTszbUPK5ElYNGDl37w%3D&st=2020-07-09T03%3A27%3A10Z&se=2020-08-09T03%3A32%3A10Z&sp=r) |
 | 2 | https://github.com/MicrosoftDocs/cloud-developer-advocates/pull/426 | Errors | [report](https://opbuildstorageprod.blob.core.windows.net/report/2020%5C7%5C9%5C0d08eb89-305e-92bb-9d56-f2e149204cb4%5CPullRequest%5C202007090331402931-426%5Cworkflow_report.html?sv=2016-05-31&sr=b&sig=SqcGvUK1RjSUOiLVWbUo43CkkFxpofC25Vcg95O4WkI%3D&st=2020-07-09T03%3A27%3A06Z&se=2020-08-09T03%3A32%3A06Z&sp=r) |
 | 3 | https://github.com/MicrosoftDocs/learn-certs-pr/pull/841 | Warnings | [report](https://opbuildstorageprod.blob.core.windows.net/report/2020%5C7%5C9%5Ca71f7788-a020-191e-9a14-c3d7c0a3b27b%5CPullRequest%5C202007090331429349-841%5Cworkflow_report.html?sv=2016-05-31&sr=b&sig=qm9bzZSTCiKi7DeFnwN60LD5NOzZl%2BD5iONwquXGUqs%3D&st=2020-07-09T03%3A27%3A33Z&se=2020-08-09T03%3A32%3A33Z&sp=r) |
