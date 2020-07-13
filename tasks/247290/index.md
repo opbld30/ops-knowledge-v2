@@ -1,6 +1,6 @@
 # DEV TASK 247290
 
-| # | PR | Build Status | Build Report |
+| # | PR | Status | Build Report |
 |:---:|:---|:---:|:---:|
 | 1 | https://github.com/MicrosoftDocs/hdinsight-kafka-rest-proxy<br/>Waiting for [bug](https://dev.azure.com/ceapex/Engineering/_workitems/edit/264003) fixing |  |  |
 | 2 | https://github.com/MicrosoftDocs/kaizala-docs-rest-apis<br/>Waiting for [bug](https://dev.azure.com/ceapex/Engineering/_workitems/edit/264014) fixing |  |  |
