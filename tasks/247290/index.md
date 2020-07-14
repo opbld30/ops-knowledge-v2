@@ -3,7 +3,7 @@
 | # | PR | Build Status | Build Report | Publish URL |
 |:---:|:---|:---:|:---:|:---:|
 | 1 | https://github.com/MicrosoftDocs/hdinsight-kafka-rest-proxy<br/>Waiting for [bug](https://dev.azure.com/ceapex/Engineering/_workitems/edit/264003) fixing |  |  |  |
-| 2 | https://github.com/MicrosoftDocs/kaizala-docs-rest-apis<br/>Waiting for [bug](https://dev.azure.com/ceapex/Engineering/_workitems/edit/264014) fixing |  |  |  |
+| 2 | https://github.com/MicrosoftDocs/kaizala-docs-rest-apis/pull/11 |  |  |  |
 | 3 | https://github.com/MicrosoftDocs/vsts-docs-rest-apis<br/>Waiting for [bug](https://dev.azure.com/ceapex/Engineering/_workitems/edit/263955) fixing |  |  |  |
 | 4 | https://github.com/MicrosoftDocs/biztalk-docs-rest-apis/pull/10 | Warnings | [report](https://opbuildstorageprod.blob.core.windows.net/report/2020%5C7%5C13%5C8408ff2b-cc31-06be-15d4-d9a2e6d43886%5CPullRequest%5C202007130903110317-10%5Cworkflow_report.html?sv=2016-05-31&sr=b&sig=iMxOU2%2F%2FfYahArr7tFQhf%2FwXTvZNTem7P3qkH4QEREk%3D&st=2020-07-13T08%3A58%3A38Z&se=2020-08-13T09%3A03%3A38Z&sp=r) |  |
 | 5 | https://github.com/MicrosoftDocs/azure-blockchain-workbench-docs-rest-apis/pull/34 | Succeeded | [report](https://opbuildstorageprod.blob.core.windows.net/report/2020%5C7%5C9%5C4059a34e-45e6-05da-5cde-6d8241a8bd17%5CPullRequest%5C202007091000228871-34%5Cworkflow_report.html?sv=2016-05-31&sr=b&sig=n0v1w7IEz8XUQxeDagbgp9OfSbcM9WrN4PGyRwNhBgI%3D&st=2020-07-09T09%3A55%3A49Z&se=2020-08-09T10%3A00%3A49Z&sp=r) |  |
